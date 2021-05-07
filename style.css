@@ -1,0 +1,32 @@
+
+
+.navbar{
+    position: static;
+    padding: auto;
+}
+
+.container{
+    background-color:whitesmoke;
+    width: 720px;
+    margin: auto;
+    padding: 10px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius: 25px;
+
+    font-family: 'Malgun Gothic';
+}
+
+#wrapper{
+    margin: 10px;
+    padding: 10px;
+}
+
+#record{
+    background-color:white;
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    
+}
+

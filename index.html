@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!--BOOTSTRAP-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
         <link rel="stylesheet" href="style.css">
-    
+
         <title>Today-exchange</title>
         
     </head>
@@ -14,7 +18,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="graph-up.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            오늘 환전 
+            <b>오늘 환전 </b>
           </a>
         </div>
     </nav>
@@ -25,7 +29,7 @@
             
             <div id = "graph">
                 <div id = "wrapper">
-                    <h4>💵 환율 그래프</h4>
+                    <h4><b>💵 환율 그래프</b></h4>
 
                     <!--
                         환율 그래프와 표 추가
@@ -36,12 +40,21 @@
 
             <div id = "calulator">
                 <div id = "wrapper">
-                    <h4>🤔 오늘 환전하면?</h4>
+                    <h4><b>🤔 오늘 환전하면? </b><span id = "todayDetail" class="detail" > </span></h4>
+                    
+                    <div class = "select">
+                    <select class="form-select">
+                        <option selected>외화종류</option>
+                        <option value="1">USD</option>
+                        <option value="2">JPY</option>
+                        <option value="3">CNY</option>
+                    </select>
+                    를 기준으로
+                    <input class="form-control" type="text" placeholder="Money" aria-label="default input example">
+                    라고 했을 때,
+                    </div>
 
-                    <!--
-                        환전 계산기 추가
-                    -->
-
+                    <div class="result">원 입니다!</div>
                 </div>
 
             </div>
@@ -49,11 +62,46 @@
 
             <div id = "compare">
                 <div id = "wrapper">
-                    <h4>🧐 다른 날과 비교해볼까요?</h4>
+                    <h4><b>🧐 다른 날과 비교해볼까요? </b><span id = "compareDetail" class="detail" > </span></h4>
 
-                    <!--
-                        환율 비교 기능 추가
-                    -->
+                    <div class = "select">
+                    <select class="form-select" >
+                        <option selected>월</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+
+                    월
+
+                    <select class="form-select" >
+                        <option selected>일</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    일과 비교하면
+                    </div>
+
+                    <div class="result">원 손해/이득입니다!</div>
 
                 </div>
 
@@ -91,8 +139,6 @@
         </div>
 
         
-
-
         <nav class="navbar fixed-bottom navbar-dark", style="background-color: dimgray;">
             <div class="container-fluid">
                 <span class="navbar-text">
@@ -104,7 +150,7 @@
         
 
 
-  
+        <script src = "script.js"></script>
        
     </body>
 </html>

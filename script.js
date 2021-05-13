@@ -18,5 +18,8 @@ function printDateTime() {
 window.addEventListener("load", () => {
     printDateTime();
 });
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 22985024af81bff2488a29bd0356555ff9ae5639

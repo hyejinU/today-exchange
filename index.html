@@ -41,16 +41,27 @@
             <div id = "calulator">
                 <div id = "wrapper">
                     <h4><b>🤔 오늘 환전하면? </b><span id = "todayDetail" class="detail" > </span></h4>
-                    
+
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="btnradio1">송금보낼때</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2">송금받을때</label>
+                      </div>
+
                     <div class = "select">
-                    <select class="form-select">
+                    <select id="moneyType" class="form-select">
                         <option selected>외화종류</option>
                         <option value="1">USD</option>
                         <option value="2">JPY</option>
                         <option value="3">CNY</option>
                     </select>
                     를 기준으로
-                    <input class="form-control" type="text" placeholder="Money" aria-label="default input example">
+                    <div class="input-group flex-nowrap">
+                        <span id="addon-wrapping" class="input-group-text" >$</span>
+                        <input type="text" class="form-control" placeholder="Enter Money" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
                     라고 했을 때,
                     </div>
 
@@ -65,38 +76,14 @@
                     <h4><b>🧐 다른 날과 비교해볼까요? </b><span id = "compareDetail" class="detail" > </span></h4>
 
                     <div class = "select">
-                    <select class="form-select" >
+                    <select id="Month" class="form-select" >
                         <option selected>월</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
                     </select>
 
                     월
 
-                    <select class="form-select" >
+                    <select id="Day" class="form-select" >
                         <option selected>일</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
                     </select>
                     일과 비교하면
                     </div>

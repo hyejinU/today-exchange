@@ -16,6 +16,11 @@ function printDateTime() {
 
 }
 
+function printCal(){
+    const input = document.getElementById("inputCal").value;
+    document.getElementById("resultCal").innerText = input;
+}
+
 //현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
 function setMonthDay(){
     let month = document.getElementById("Month");
@@ -79,6 +84,7 @@ type.onchange = function(){
         moneytype.innerText = "¥(위안)";
     }
 }
+
 
 
 

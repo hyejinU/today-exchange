@@ -14,7 +14,7 @@
         
     </head>
 
-    <nav class="navbar navbar-light" style="background-color:rgb(252, 252, 190); text-align: center;">
+    <nav class="text-center navbar navbar-light" style="background-color:rgb(252, 252, 190);">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="graph-up.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -107,75 +107,117 @@
 
             </div>
 
-            <div id = "banner">
-                <div id = "wrapper">
-                   <h6>더 많은 정보를 얻고 싶다면...</h6>
-                   <div>
-                       <a href = "https://finance.naver.com/marketindex/"><img src="naver-banner.png" width="100" height="100"></a>
-
-                       <a href = "https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp?_menuNo=23100"><img src = "hanabank-banner.png" width="100" height="100"></a>
-
-                       <!--
-                           배너 추가
-                       -->
-                   </div>
-
-
-                </div>
-
-            </div>
-
             <div id = "record">
+                <div id = "wrapper">
                 <h4><b>🧾 나의 외화 보유량 </b></h4>
- 
-                <div class="card text-center">
-                    <div class="card-header">
 
-                      <ul class="nav nav-tabs card-header-tabs" id="listTabs">
+                
+                <table class="table">
+                <h5 class="text-center">USD</h5>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>230</td>
+                    <td>2021.05.01</td>
+                  </tr>
+                </tbody>
+                    
+                <tfoot>
+                    <tr>
+                        <th scope="col">SUM</th>
+                        <th scope="col">230</th>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>
 
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link active" id="usd-tab" data-bs-toggle="tab" href="#usdtab" role ="tab" aria-controls="usd" aria-selected="true">USD</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="jpy-tab" data-bs-toggle="tab" href="#jpytab" role ="tab" aria-controls="jpy" aria-selected="flase">JPY</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="cny-tab" data-bs-toggle="tab" href="#cnytab" role ="tab" aria-controls="cny" aria-selected="flase">CNY</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class = "card-body">
-                    <div class="tab-content" id="listTabContent">
-                        <div class="tab-pane fade show active" id="usdtab" role="tabpanel" aria-labelledby="usd-tab">
-                            usd
-                        </div>
-                        <div class="tab-pane fade" id="jpytab" role="tabpanel" aria-labelledby="jpy-tab">
-                            jpy
-                        </div>
-                        <div class="tab-pane fade" id="cnytab" role="tabpanel" aria-labelledby="cny-tab">
-                            cny
-                        </div>
-                    </div>
-                </div>
+                
+                <table class="table">
+                    <h5 class="text-center">JPY</h5>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>230</td>
+                    <td>2021.05.01</td>
+                  </tr>
+                </tbody>
+                    
+                <tfoot>
+                    <tr>
+                        <th scope="col">SUM</th>
+                        <th scope="col">230</th>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>
 
- 
+
+                
+                <table class="table">
+                    <h5 class="text-center">CNY</h5>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>230</td>
+                    <td>2021.05.01</td>
+                  </tr>
+                </tbody>
+                    
+                <tfoot>
+                    <tr>
+                        <th scope="col">SUM</th>
+                        <th scope="col">230</th>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>
+
+
+
             </div>
             
         </div>
 
-        
-        <nav class="navbar fixed-bottom navbar-dark", style="background-color: dimgray;">
-            <div class="container-fluid">
-                <span class="navbar-text">
-                    여기엔 뭘 넣을지 나중에 생각해봅시다
-                </span>
+        <div id = "banner">
+            <div id = "wrapper">
+               <h5>더 많은 정보를 얻고 싶다면...</h5>
+               <div>
+                   <a href = "https://finance.naver.com/marketindex/"><img src="naver-banner.png" class="img-thumbnail" width="100" height="100"></a>
+
+                   <a href = "https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp?_menuNo=23100"><img src = "hanabank-banner.png" class="img-thumbnail" width="100" height="100"></a>
+
+                   <a href = "https://spib.wooribank.com/pib/Dream?withyou=PSFXD0124"><img src = "wooribank-banner.png" class="img-thumbnail" width="100" height="100"></a>
+
+               </div>
+
+
             </div>
-        </nav>
 
-        
-
+        </div>
 
         <script src = "script.js"></script>
        
     </body>
+
 </html>

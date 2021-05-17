@@ -35,3 +35,19 @@
 .detail{
     font-size: x-small;
 }
+
+.select{
+    padding: 5px;
+}
+
+.context{
+    padding-bottom: 10px;
+}
+.button{
+    padding-left : 5px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.form-select{
+    width: 100px;
+}

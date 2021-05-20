@@ -1,53 +1,59 @@
+.container {
+  background-color: rgba(245, 245, 245, 0.555);
+  width: 800px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  border-radius: 25px;
 
-.container{
-    background-color:whitesmoke;
-    width: 720px;
-    margin: auto;
-    padding: 10px;
-    margin-top:40px;
-    margin-bottom:40px;
-    border-radius: 25px;
-
-    font-family: 'Malgun Gothic';
+  font-family: "Malgun Gothic";
 }
 
-.table{
-    width: 600px;
-    margin: auto;
-    padding: 20px;
-    margin-bottom:40px;
+.container-md {
+  font-size: xx-large;
+  background-color: rgb(252, 252, 190);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+  font-family: "Malgun Gothic";
+  text-align: center;
 }
 
-
-#wrapper{
-    margin: 20px;
-    padding: 20px;
+.table {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  margin-bottom: 60px;
 }
 
-
-
-#banner{
-    margin: 10px;
-    padding: 10px;
+#wrapper {
+  margin: 20px;
+  padding: 20px;
 }
 
-
-.detail{
-    font-size: x-small;
+#banner {
+  margin: 10px;
+  padding: 10px;
 }
 
-.select{
-    padding: 5px;
+.detail {
+  font-size: x-small;
 }
 
-.context{
-    padding-bottom: 10px;
+.select {
+  padding: 5px;
 }
-.button{
-    padding-left : 5px;
-    padding-bottom: 10px;
-    padding-top: 5px;
+
+.context {
+  padding-bottom: 10px;
 }
-.form-select{
-    width: 100px;
+.button {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.form-select {
+  width: 100px;
 }

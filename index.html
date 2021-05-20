@@ -129,8 +129,32 @@
 
             <div id = "record">
                 <div id = "wrapper">
-                <h4><b>🧾 나의 외화 보유량 </b></h4>
 
+                <h4><b>🧾 나의 외화 보유량 </b></h4>
+                <div class="d-flex mt-3 mb-3">
+                    <select id="record-moneyType" class="form-select" aria-label="Default select example">
+                        <option selected>종류</option>
+                        <option value="1">USD</option>
+                        <option value="2">CNY</option>
+                        <option value="3">JPY</option>
+                    </select>
+                    <div class="input-group flex-nowrap ms-1"  style="width: 1000px;">
+                        <span id="input-box" class="input-group-text" ></span><input type="text" aria-label="money-input" class="form-control" id="money-input" placeholder="Enter Money">
+                    </div>
+
+                    
+                    <select id="record-month" class="form-select ms-2" >
+                        <option selected>월</option>
+                    </select>
+
+                    <select id="record-day" class="form-select ms-1" >
+                        <option selected>일</option>
+                    </select>
+                   
+                    <button type="button" id="save-button" class="btn btn-primary ms-1 text-nowrap">save</button>
+
+                    
+                </div>
                 
                 <table class="table">
                 <h5 class="text-center">USD</h5>

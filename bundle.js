@@ -108214,6 +108214,14 @@ WError.prototype.cause = function we_cause(c)
 const request = require("request"); // npm install request
 const cheerio = require("cheerio"); // npm install cheerio-httpcli 를 해야함
 
+const headers = new Headers({
+    'Content-Type': 'text/xml',
+  });
+  fetch('https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_USDKRW', { headers });
+
+
+
+
 scraped = {
     'DATE': '',
     'EXCHANGE RATE': '',

@@ -39,8 +39,8 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, ""); // 필요한 부분은 다 string에서 float로 바꿈
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
             console.log(scraped)
 
             var data = JSON.stringify(scraped);
@@ -62,8 +62,8 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
             console.log(scraped)
         });
         
@@ -77,8 +77,8 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
             console.log(scraped)
         });
         
@@ -92,8 +92,8 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
             console.log(scraped)
         });
         

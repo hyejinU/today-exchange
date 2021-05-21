@@ -1,12 +1,22 @@
+function loadFile(filePath) {
+    var result = null;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", filePath, false);
+    xmlhttp.send();
+    if (xmlhttp.status==200) {
+      result = xmlhttp.responseText;
+    }
+    return result;
+  }
+  let today = document.getElementById("todayDetail");
+  today.innerText = loadFile("text1.txt");
+
+
+
+
+/*
 const request = require("request"); // npm install request
 const cheerio = require("cheerio"); // npm install cheerio-httpcli 를 해야함
-
-const headers = new Headers({
-    'Content-Type': 'text/xml',
-  });
-  fetch('https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_USDKRW', { headers });
-
-
 
 
 scraped = {
@@ -85,6 +95,12 @@ function getData() {
 }
 
 getData();
+
+*/
+
+
+
+
 
 /*
 //실시간 날짜, 시간, 분을 불러오는 function

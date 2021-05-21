@@ -92,7 +92,22 @@ type.onchange = function () {
 window.addEventListener("load", () => {
   setMonthDay();
   printDateTime();
+  loadRecords();
 });
+
+///////////////////////////////////////
+let records = [];
+function saveRecords() {
+  localStorage.setItem("records", JSON.stringify(records));
+}
+
+function loadRecords() {
+  let lastRecords = localStorage.getItem("records");
+  if (!lastRecords) return;
+
+  records = JSON.parse(lastRecords);
+  records.forEach(addToSave);
+}
 
 function setMonthDay() {
   let month = document.getElementById("record-month");
@@ -112,7 +127,6 @@ function setMonthDay() {
 
 let recordMonth = document.getElementById("record-month");
 recordMonth.onchange = function () {
-  console.log(recordMonth);
   let day = document.getElementById("record-day");
   let option = recordMonth.options[recordMonth.selectedIndex].innerText;
   let dayArr = new Array();
@@ -156,19 +170,58 @@ recordType.onchange = function () {
 
 let saveButton = document.querySelector("#save-button");
 saveButton.addEventListener("click", () => {
-  let input = document.querySelector("#money-input");
-  let amount = input.value;
+  let moneyInput = document.querySelector("#money-input");
 
-  //let newAmount = document.createElement("tr");
-  //newAmount.textContent = input;
-
+  let recordMonth = document.getElementById("record-month");
+  let recordDay = document.getElementById("record-day");
   let option = recordType.options[recordType.selectedIndex].innerText;
-  let recordMoneyType;
-  if (option === "USD") {
-    recordMoneyType = 1;
-  } else if (option === "JPY") {
-    recordMoneyType = 2;
-  } else if (option === "CNY") {
-    recordMoneyType = 3;
+  let moneyAmount = parseFloat(moneyInput.value);
+
+  let month = recordMonth.value;
+  let day = recordDay.value;
+
+  let record = {
+    amount: moneyAmount,
+    month: month,
+    day: day,
+    option: option,
+  };
+
+  records.push(record);
+
+  addToSave(record);
+  saveRecords();
+
+  moneyInput.value = "";
+});
+
+function addToSave(record) {
+  let row = `<tr> </td> <td> ${record.month}.${record.day}  </td> <td>${record.amount}</td> </tr>`;
+
+  if (record.option === "USD") {
+    let recordUsd = document.getElementById("record-usd");
+    recordUsd.innerHTML += row;
+    let usdSum = document.getElementById("usd-sum").innerText;
+    let sum = parseFloat(usdSum);
+    sum += record.amount;
+    document.getElementById("usd-sum").innerText = sum + "";
+  } else if (record.option === "JPY") {
+    let recordJpy = document.getElementById("record-jpy");
+    let jpySum = document.getElementById("jpy-sum").innerText;
+    let sum = parseFloat(jpySum);
+    sum += record.amount;
+    document.getElementById("jpy-sum").innerText = sum + "";
+  } else if (record.option === "CNY") {
+    let recordCny = document.getElementById("record-cny");
+    recordCny.innerHTML += row;
+    let cnySum = document.getElementById("cny-sum").innerText;
+    let sum = parseFloat(cnySum);
+    sum += record.amount;
+    document.getElementById("cny-sum").innerText = sum + "";
   }
+}
+
+let clearButton = document.querySelector("#clear-button");
+clearButton.addEventListener("click", () => {
+  localStorage.clear();
 });

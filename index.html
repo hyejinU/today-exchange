@@ -139,7 +139,7 @@
                         <option value="3">JPY</option>
                     </select>
                     <div class="input-group flex-nowrap ms-1"  style="width: 1000px;">
-                        <span id="input-box" class="input-group-text" ></span><input type="text" aria-label="money-input" class="form-control" id="money-input" placeholder="Enter Money">
+                        <span id="input-box" class="input-group-text" ></span><input type="text" aria-label="money-input" class="form-control" id="money-input" placeholder="Enter Money ( + / - )">
                     </div>
 
                     
@@ -153,91 +153,91 @@
                    
                     <button type="button" id="save-button" class="btn btn-primary ms-1 text-nowrap">save</button>
 
-                    
+                    <button type="button" id="clear-button" class="btn btn-outline-secondary btn-sm ms-1 text-nowrap">clear</button>
+
                 </div>
                 
-                <table class="table">
-                <h5 class="text-center">USD</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
-                    
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM </th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
-
                 
-                <table class="table">
-                    <h5 class="text-center">JPY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
-                    
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM</th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
+                <div class ="d-flex align-items-stretch" >
+                    <div class="record-table">
+                        <table class="table">
+                            <h5 class="text-center">USD</h5>
+                            <thead>
+                              <tr>
+                                    
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Amount </th>
+                                </tr>
+                            </thead>
+                            <tbody  id="record-usd">
+                                
+                             
+                            </tbody>
+                                
+                            <tfoot>
+                                <tr>
+                                   
+                                    <th scope="col"> </th>
+                                    <th scope="col" id="usd-sum"> 0 </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+            
 
+                    </div>
+                    <div class="record-table">
+                        <table class="table">
+                            <h5 class="text-center">JPY</h5>
+                            <thead>
+                                <tr>
+                                   
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Amount </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="record-jpy" >
+                               
+                            </tbody>
+                            
+                            <tfoot>
+                                <tr>
+                                    
+                                    <th scope="col"></th>
+                                    <th scope="col" id="jpy-sum"> 0 </th>
+                                
+                                </tr>
+                            </tfoot>
+                        </table>
 
+                    </div>
+                    <div class="record-table">
+                        <table class="table">
+                            <h5 class="text-center">CNY</h5>
+                            <thead>
+                                <tr>
+                                    
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Amount </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="record-cny">
+                                
+                            </tbody>
+                            
+                            <tfoot>
+                                <tr>
+                                   
+                                    <th scope="col"></th>
+                                    <th scope="col"  id="cny-sum">0</th>
+                                
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 
-                <table class="table">
-                    <h5 class="text-center">CNY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
-                    
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM</th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
-
-
+                </div>
 
             </div>
             

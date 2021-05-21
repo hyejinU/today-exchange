@@ -22,10 +22,14 @@
 }
 
 .table {
-  width: 600px;
-  margin: auto;
   padding: 20px;
-  margin-bottom: 60px;
+  text-align: center;
+}
+
+.record-table {
+  width: 500px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 #wrapper {

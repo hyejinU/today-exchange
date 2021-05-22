@@ -8,101 +8,25 @@ function loadFile(filePath) {
     }
     return result;
   }
-  let today = document.getElementById("todayDetail");
-  today.innerText = loadFile("text1.txt");
 
-
-
-
-/*
-const request = require("request"); // npm install request
-const cheerio = require("cheerio"); // npm install cheerio-httpcli 를 해야함
-
-
-scraped = {
-    'DATE': '',
-    'EXCHANGE RATE': '',
-    'BUY': '',
-    'SELL': ''
-}
- var choice;
- var array = ["USD", "EUR", "JPY", "CNY"];
- 
- choice = array[0]; // 여기를 고차면 index 0: USD, index 1: EUR, index 2: JPY, index 3: CNY
-
-
-function getData() {
-
-    switch (choice) {
-        case "USD":
-            request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_USDKRW", function (err, res, body) {
-        const $ = cheerio.load(body);
-        const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
-            scraped['DATE'] = parseFloat(String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "")); // 필요한 부분은 다 string에서 float로 바꿈
-            scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
-            });
-        });
-        break;
-    case "EUR":
-            request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_EURKRW", function (err, res, body) {
-        const $ = cheerio.load(body);
-        const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
-            scraped['DATE'] = parseFloat(String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, ""));
-            scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
-        });
-        
-
-    });
-    break;
-    case "JPY":
-            request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_JPYKRW", function (err, res, body) {
-        const $ = cheerio.load(body);
-
-        const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
-            scraped['DATE'] = parseFloat(String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, ""));
-            scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
-        });
-        
-
-    });
-    break;
-    case "CNY":
-            request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_CNYKRW", function (err, res, body) {
-        const $ = cheerio.load(body);
-
-        const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
-            scraped['DATE'] = parseFloat(String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, ""));
-            scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
-        });
-        
-
-    });
-    break;
-   }
+  let usdStr = loadFile("usd.txt").split('@');
+  let eurStr = loadFile("eur.txt").split('@');
+  let jpyStr = loadFile("jpy.txt").split('@');
+  let cnyStr = loadFile("cny.txt").split('@');
   
-}
+  let usd = new Array();
+  let eur = new Array();
+  let jpy = new Array();
+  let cny = new Array();
+  for(let i=0; i<10; i++){
+    usd[i] = JSON.parse(usdStr[i]);
+    eur[i] = JSON.parse(eurStr[i]);
+    jpy[i] = JSON.parse(jpyStr[i]);
+    cny[i] = JSON.parse(cnyStr[i]);
+  }
 
-getData();
-
-*/
 
 
-
-
-
-/*
 //실시간 날짜, 시간, 분을 불러오는 function
 function printDateTime() {
     let today = document.getElementById("todayDetail");
@@ -216,4 +140,4 @@ type.onchange = function(){
 window.addEventListener("load", () => {
     setMonthDay();
     printDateTime();
-}); */
+}); 

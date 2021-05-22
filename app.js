@@ -1,5 +1,4 @@
 
-
 //app.use(cors());
 
 var express = require('express');
@@ -8,10 +7,6 @@ var app = express();
 var path = require('path');
 const fs = require('fs');
 app.use(cors({credentials: true}));
-
-
-// express 는 함수이므로, 반환값을 변수에 저장한다.
-// 3000 포트로 서버 오픈
 
 
 const request = require("request"); // npm install request
@@ -24,13 +19,9 @@ scraped = {
     'BUY': '',
     'SELL': ''
 }
- var choice;
- var array = ["USD", "EUR", "JPY", "CNY"];
- 
- choice = array[0]; // 여기를 고차면 index 0: USD, index 1: EUR, index 2: JPY, index 3: CNY
 
 
-function getData() {
+function getData(choice) {
 
     switch (choice) {
         case "USD":
@@ -39,20 +30,17 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, ""); // 필요한 부분은 다 string에서 float로 바꿈
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
-
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
             var data = JSON.stringify(scraped);
             if(i===0){
-            fs.writeFile('text1.txt', data, 'utf8', function(err) {
-                console.log('비동기적 파일 쓰기 완료');
-            });
+                data += "@";
+                fs.writeFileSync('usd.txt', data, 'utf8'); // 동기적 파일쓰기, 왜? 비동기적하면 하면서 다른것도 씀 -> 순서가 뒤틀림
             }
             else{
-            fs.appendFileSync('text1.txt', data);
+                if(i!==9) data += "@";
+                fs.appendFileSync('usd.txt', data); // 비동기적 파일 쓰기
             }   
-
             });
         });
         break;
@@ -62,9 +50,17 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
+            var data = JSON.stringify(scraped);
+            if(i===0){
+                data += "@";
+                fs.writeFileSync('eur.txt', data, 'utf8'); 
+            }
+            else{
+                if(i!==9) data += "@";
+                fs.appendFileSync('eur.txt', data); 
+            }   
         });
         
 
@@ -77,9 +73,17 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
+            var data = JSON.stringify(scraped);
+            if(i===0){
+                data += "@";
+                fs.writeFileSync('jpy.txt', data, 'utf8'); 
+            }
+            else{
+                if(i!==9) data += "@";
+                fs.appendFileSync('jpy.txt', data); 
+            }   
         });
         
 
@@ -92,9 +96,17 @@ function getData() {
         const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
             scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
             scraped['EXCHANGE RATE'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(4)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(5)').text()).replace(/,/g, ""));
-            console.log(scraped)
+            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
+            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
+            var data = JSON.stringify(scraped);
+            if(i===0){
+                data += "@";
+                fs.writeFileSync('cny.txt', data, 'utf8'); 
+            }
+            else{
+                if(i!==9) data += "@";
+                fs.appendFileSync('cny.txt', data); 
+            }   
         });
         
 
@@ -104,8 +116,10 @@ function getData() {
   
 }
 
-getData();
-
+getData("USD");
+getData("EUR");
+getData("JPY");
+getData("CNY");
 
 // request 와 response 라는 인자를 줘서 콜백 함수를 만든다.
 // localhost:3000 브라우저에 res.sendFile() 내부의 파일이 띄워진다.
@@ -127,6 +141,6 @@ app.get('/main', function(req,res) {
 });
 
 app.listen(3000, function () {
-    console.log('Cupdate')
+    console.log('Server opened!')
   })
 

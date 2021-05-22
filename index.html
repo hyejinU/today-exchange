@@ -130,93 +130,123 @@
             <div id = "record">
                 <div id = "wrapper">
                 <h4><b>🧾 나의 외화 보유량 </b></h4>
+                <div class = "d-flex" style="margin-top: 20px;">
+                    <select id="record-moneyType" class="form-select">
+                        <option selected>종류</option>
+                        <option value="1">USD</option>
+                        <option value="2">JPY</option>
+                        <option value="3">CNY</option>
+                    </select>
+
+                    <div class="input-group flex-nowrap">
+                        <span id="record-optionType" class="input-group-text  ms-2" ></span>
+                        <input id="record-input" type="text" class="form-control" placeholder="Enter Money ( + / - )">
+                    </div>
+
+                    <select id="record-Month" class="form-select ms-2" >
+                        <option selected>월</option>
+                    </select>
+
+                    <select id="record-Day" class="form-select ms-1" >
+                        <option selected>일</option>
+                    </select>
+                    
+                    
+                    <button type="button" class="btn btn-primary ms-2" id="record-saveButton">save</button>
+
+                    <button type="button" class="btn btn-outline-danger ms-1" id="record-clearButton">clear</button>
+                </div>
 
                 
-                <table class="table">
-                <h5 class="text-center">USD</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
+
+                <div class = "d-flex" style="margin-top: 20px;">
+                        
+                    <div class = "record-tabel">
+                        <table class="table">
+                            <h5 class="text-center">USD</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="record-usd">
+                          
+                        </tbody>
+                            
+                        <tfoot>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" id="usd-sum">0</th>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    </div>
+
+                    <div class = "record-tabel">
+                        <table class="table">
+                            <h5 class="text-center">JPY</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="record-jpy">
+                          
+                        </tbody>
+                            
+                        <tfoot>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" id="jpy-sum">0</th>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+        
+        
+
+                    </div>
                     
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM </th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
-
-                
-                <table class="table">
-                    <h5 class="text-center">JPY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
                     
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM</th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
+                    <div class = "record-tabel">
+                        <table class="table">
+                            <h5 class="text-center">CNY</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="record-cny">
+                          
+                        </tbody>
+                            
+                        <tfoot>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" id="cny-sum">0</th>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+        
+        
 
-
-                
-                <table class="table">
-                    <h5 class="text-center">CNY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>230</td>
-                    <td>2021.05.01</td>
-                  </tr>
-                </tbody>
+                    </div>
+                        
+                        
+                        
+                        
+                </div>
                     
-                <tfoot>
-                    <tr>
-                        <th scope="col">SUM</th>
-                        <th scope="col">230</th>
-                        <td></td>
-                    </tr>
-                </tfoot>
-                </table>
-
-
 
             </div>
-            
+
+                
+                
         </div>
 
         <div id = "banner">

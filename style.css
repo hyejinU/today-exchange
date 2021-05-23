@@ -1,53 +1,67 @@
-
-.container{
-    background-color:whitesmoke;
-    width: 720px;
-    margin: auto;
-    padding: 10px;
-    margin-top:40px;
-    margin-bottom:40px;
-    border-radius: 25px;
-
-    font-family: 'Malgun Gothic';
+body {
+  background-color: rgba(255, 250, 210, 0.555);
 }
 
-.table{
-    width: 600px;
-    margin: auto;
-    padding: 20px;
-    margin-bottom:40px;
+.container {
+  background-color: rgba(255, 255, 255, 0.575);
+  width: 800px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  border-radius: 25px;
+  font-family: "Gothic A1", sans-serif;
 }
 
+.container-md {
+  font-size: 50px;
+  width: 800px;
 
-#wrapper{
-    margin: 20px;
-    padding: 20px;
+  padding-top: 30px;
+  margin-top: 10px;
+
+  font-family: "Do Hyeon", sans-serif;
 }
 
-
-
-#banner{
-    margin: 10px;
-    padding: 10px;
+.table {
+  text-align: center;
+  width: 180px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
 }
 
-
-.detail{
-    font-size: x-small;
+#wrapper {
+  margin: 20px;
+  padding: 20px;
 }
 
-.select{
-    padding: 5px;
+#banner {
+  margin: 10px;
+  padding: 10px;
 }
 
-.context{
-    padding-bottom: 10px;
+.detail {
+  font-size: 11px;
 }
-.button{
-    padding-left : 5px;
-    padding-bottom: 10px;
-    padding-top: 5px;
+
+.select {
+  padding: 5px;
 }
-.form-select{
-    width: 100px;
+
+.context {
+  padding-bottom: 10px;
+}
+.button {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.form-select {
+  width: 100px;
+}
+
+#navbr-bottom {
+  background-color: darkgray;
+  height: 150px;
 }

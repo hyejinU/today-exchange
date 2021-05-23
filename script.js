@@ -26,8 +26,6 @@ function loadFile(filePath) {
     cny[i] = JSON.parse(cnyStr[i]);
   }
 
-console.log(usd);
-
 
 //실시간 날짜, 시간, 분을 불러오는 function
 function printDateTime() {
@@ -50,7 +48,7 @@ function printDateTime() {
     if(document.getElementById("btnradio3").checked === true){
         compareStr = "송금보낼때, ";
     }
-    else if(document.getElementById("btnradio4").checked === true){
+    else{
         compareStr = "송금받을때, ";
     }
 

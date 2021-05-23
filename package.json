@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hyejinyoo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.9",
+    "cheerio-httpcli": "^0.8.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
 }

@@ -1,3 +1,34 @@
+function loadFile(filePath) {
+  var result = null;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", filePath, false);
+  xmlhttp.send();
+  if (xmlhttp.status == 200) {
+    result = xmlhttp.responseText;
+  }
+  return result;
+}
+
+let usdStr = loadFile("usd.txt").split("@");
+let eurStr = loadFile("eur.txt").split("@");
+let jpyStr = loadFile("jpy.txt").split("@");
+let cnyStr = loadFile("cny.txt").split("@");
+
+let usd = new Array();
+let eur = new Array();
+let jpy = new Array();
+let cny = new Array();
+
+for (let i = 0; i < 10; i++) {
+  usd[i] = JSON.parse(usdStr[i]);
+  eur[i] = JSON.parse(eurStr[i]);
+  jpy[i] = JSON.parse(jpyStr[i]);
+  cny[i] = JSON.parse(cnyStr[i]);
+}
+
+console.log(usd);
+
+//실시간 날짜, 시간, 분을 불러오는 function
 function printDateTime() {
   let today = document.getElementById("todayDetail");
   let compare = document.getElementById("compareDetail");
@@ -16,20 +47,64 @@ function printDateTime() {
     now.getMinutes() +
     "분 기준";
 
-  let todayStr = "송금보낼때, " + dateTime + ", 하나은행";
-  let compareStr = "송금보낼때로 계산, " + dateTime + ", 하나은행";
+  let todayStr, compareStr;
+
+  if (document.getElementById("btnradio1").checked === true) {
+    todayStr = "송금보낼때, ";
+  } else {
+    todayStr = "송금받을때, ";
+  }
+
+  if (document.getElementById("btnradio3").checked === true) {
+    compareStr = "송금보낼때, ";
+  } else if (document.getElementById("btnradio4").checked === true) {
+    compareStr = "송금받을때, ";
+  }
+
+  todayStr += usd[0].DATE + ", 하나은행";
+  compareStr += usd[0].DATE + ", 하나은행";
 
   today.innerText = todayStr;
   compare.innerText = compareStr;
 }
 
+//calculate 한 result를 보여준다.
 function printCal() {
-  const input = document.getElementById("inputCal").value;
-  document.getElementById("resultCal").innerText = input;
+  let input = document.getElementById("inputCal").value;
+  let option = type.options[type.selectedIndex].innerText;
+  let result = "외화 종류를 선택해주세요.";
+
+  if (option === "USD") {
+    if (document.getElementById("btnradio1").checked === true) {
+      result = input * usd[0].BUY;
+    } else {
+      result = input * usd[0].SELL;
+    }
+
+    result = result.toFixed(2);
+  } else if (option === "JPY") {
+    if (document.getElementById("btnradio1").checked === true) {
+      result = input * jpy[0].BUY;
+    } else {
+      result = input * jpy[0].SELL;
+    }
+
+    result = result.toFixed(2);
+  } else if (option === "CNY") {
+    if (document.getElementById("btnradio1").checked === true) {
+      result = input * cny[0].BUY;
+    } else {
+      result = input * cny[0].SELL;
+    }
+    result = result.toFixed(2);
+  }
+
+  document.getElementById("resultCal").innerText = result;
+  document.getElementById("inputCal").value = "";
 }
 
 //현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
-function setMonthDay() {
+function setMonthDay1() {
   let month = document.getElementById("Month");
   let now = new Date();
 
@@ -45,8 +120,10 @@ function setMonthDay() {
   }
 }
 
+//월 선택하면 날짜를 선택할 수 있게 한다.
 let month = document.getElementById("Month");
 month.onchange = function () {
+  console.log("month");
   let day = document.getElementById("Day");
   let option = month.options[month.selectedIndex].innerText;
   let dayArr = new Array();
@@ -76,9 +153,10 @@ month.onchange = function () {
 
 let type = document.getElementById("moneyType");
 type.onchange = function () {
-  console.log(type);
   let option = type.options[type.selectedIndex].innerText;
   let moneytype = document.getElementById("addon-wrapping");
+  let result = "";
+  document.getElementById("resultCal").innerText = result;
 
   if (option === "USD") {
     moneytype.innerText = "$";
@@ -90,27 +168,16 @@ type.onchange = function () {
 };
 
 window.addEventListener("load", () => {
-  setMonthDay();
+  setMonthDay1();
+  setMonthDay2();
   printDateTime();
   loadRecords();
 });
 
-///////////////////////////////////////
-let records = [];
-function saveRecords() {
-  localStorage.setItem("records", JSON.stringify(records));
-}
+//////////////////////////////////
 
-function loadRecords() {
-  let lastRecords = localStorage.getItem("records");
-  if (!lastRecords) return;
-
-  records = JSON.parse(lastRecords);
-  records.forEach(addToSave);
-}
-
-function setMonthDay() {
-  let month = document.getElementById("record-month");
+function setMonthDay2() {
+  let month = document.getElementById("record-Month");
   let now = new Date();
 
   let nowYear = now.getFullYear();
@@ -125,9 +192,10 @@ function setMonthDay() {
   }
 }
 
-let recordMonth = document.getElementById("record-month");
+let recordMonth = document.getElementById("record-Month");
 recordMonth.onchange = function () {
-  let day = document.getElementById("record-day");
+  console.log("record-month");
+  let day = document.getElementById("record-Day");
   let option = recordMonth.options[recordMonth.selectedIndex].innerText;
   let dayArr = new Array();
   dayArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -157,71 +225,88 @@ recordMonth.onchange = function () {
 let recordType = document.getElementById("record-moneyType");
 recordType.onchange = function () {
   let option = recordType.options[recordType.selectedIndex].innerText;
-  let moneytype = document.getElementById("money-input");
 
   if (option === "USD") {
-    moneytype.innerText = "$";
+    document.getElementById("record-optionType").innerText = "$";
   } else if (option === "JPY") {
-    moneytype.innerText = "¥(엔)";
+    document.getElementById("record-optionType").innerText = "¥(엔)";
   } else if (option === "CNY") {
-    moneytype.innerText = "¥(위안)";
+    document.getElementById("record-optionType").innerText = "¥(위안)";
   }
 };
 
-let saveButton = document.querySelector("#save-button");
+//////////////
+
+let records = [];
+function saveRecords() {
+  localStorage.setItem("records", JSON.stringify(records));
+}
+
+function loadRecords() {
+  let lastRecords = localStorage.getItem("records");
+  if (!lastRecords) return;
+
+  records = JSON.parse(lastRecords);
+  records.forEach(saveToTable);
+}
+
+let saveButton = document.getElementById("record-saveButton");
 saveButton.addEventListener("click", () => {
-  let moneyInput = document.querySelector("#money-input");
+  let saveType = recordType.options[recordType.selectedIndex].innerText;
+  let saveInput = document.querySelector("#record-input");
+  let text = parseFloat(saveInput.value);
+  let saveMonth = document.querySelector("#record-Month");
+  let month = saveMonth.options[saveMonth.selectedIndex].innerText;
+  let saveDay = document.querySelector("#record-Day");
+  let day = saveDay.options[saveDay.selectedIndex].innerText;
 
-  let recordMonth = document.getElementById("record-month");
-  let recordDay = document.getElementById("record-day");
-  let option = recordType.options[recordType.selectedIndex].innerText;
-  let moneyAmount = parseFloat(moneyInput.value);
-
-  let month = recordMonth.value;
-  let day = recordDay.value;
+  if (isNaN(text)) return;
+  if (isNaN(parseFloat(month))) return;
 
   let record = {
-    amount: moneyAmount,
+    type: saveType,
+    input: text,
     month: month,
     day: day,
-    option: option,
   };
 
   records.push(record);
-
-  addToSave(record);
   saveRecords();
 
-  moneyInput.value = "";
+  saveToTable(record);
+
+  saveInput.value = "";
 });
 
-function addToSave(record) {
-  let row = `<tr> </td> <td> ${record.month}.${record.day}  </td> <td>${record.amount}</td> </tr>`;
+function saveToTable(record) {
+  let row = `<tr> <td> ${record.month}.${record.day} </td> <td>${record.input}</td> </tr>`;
 
-  if (record.option === "USD") {
-    let recordUsd = document.getElementById("record-usd");
-    recordUsd.innerHTML += row;
-    let usdSum = document.getElementById("usd-sum").innerText;
-    let sum = parseFloat(usdSum);
-    sum += record.amount;
-    document.getElementById("usd-sum").innerText = sum + "";
-  } else if (record.option === "JPY") {
-    let recordJpy = document.getElementById("record-jpy");
-    let jpySum = document.getElementById("jpy-sum").innerText;
-    let sum = parseFloat(jpySum);
-    sum += record.amount;
-    document.getElementById("jpy-sum").innerText = sum + "";
-  } else if (record.option === "CNY") {
-    let recordCny = document.getElementById("record-cny");
-    recordCny.innerHTML += row;
-    let cnySum = document.getElementById("cny-sum").innerText;
-    let sum = parseFloat(cnySum);
-    sum += record.amount;
-    document.getElementById("cny-sum").innerText = sum + "";
+  if (record.type === "USD") {
+    let type = document.getElementById("record-usd");
+    type.innerHTML += row;
+    let sum = document.getElementById("usd-sum");
+    sum = parseFloat(sum.innerText);
+    sum += record.input;
+    document.getElementById("usd-sum").innerText = sum;
+  } else if (record.type === "JPY") {
+    let type = document.getElementById("record-jpy");
+    type.innerHTML += row;
+    let sum = document.getElementById("jpy-sum");
+    sum = parseFloat(sum.innerText);
+    sum += record.input;
+    document.getElementById("jpy-sum").innerText = sum;
+  } else if (record.type === "CNY") {
+    let type = document.getElementById("record-cny");
+    type.innerHTML += row;
+    let sum = document.getElementById("cny-sum");
+    sum = parseFloat(sum.innerText);
+    sum += record.input;
+    document.getElementById("cny-sum").innerText = sum;
   }
 }
 
-let clearButton = document.querySelector("#clear-button");
+let clearButton = document.getElementById("record-clearButton");
 clearButton.addEventListener("click", () => {
   localStorage.clear();
+  location.reload(true);
 });

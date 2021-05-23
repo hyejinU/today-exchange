@@ -26,46 +26,20 @@ for (let i = 0; i < 10; i++) {
   cny[i] = JSON.parse(cnyStr[i]);
 }
 
-<<<<<<< HEAD
-=======
-console.log(usd);
->>>>>>> ba99e48938381651879d621db5b52a5c089cd7eb
-
 //실시간 날짜, 시간, 분을 불러오는 function
 function printDateTime() {
   let today = document.getElementById("todayDetail");
   let compare = document.getElementById("compareDetail");
 
   let now = new Date();
+  let compareStr, todayStr;
 
-<<<<<<< HEAD
-    if(document.getElementById("btnradio3").checked === true){
-        compareStr = "송금보낼때, ";
+    if(document.getElementById("btnradio1").checked === true){
+        todayStr = "송금보낼때, ";
     }
     else{
-        compareStr = "송금받을때, ";
+        todayStr = "송금받을때, ";
     }
-=======
-  let dateTime =
-    now.getFullYear() +
-    "년 " +
-    (now.getMonth() + 1) +
-    "월 " +
-    now.getDate() +
-    "일 " +
-    now.getHours() +
-    "시 " +
-    now.getMinutes() +
-    "분 기준";
-
-  let todayStr, compareStr;
-
-  if (document.getElementById("btnradio1").checked === true) {
-    todayStr = "송금보낼때, ";
-  } else {
-    todayStr = "송금받을때, ";
-  }
->>>>>>> ba99e48938381651879d621db5b52a5c089cd7eb
 
   if (document.getElementById("btnradio3").checked === true) {
     compareStr = "송금보낼때, ";
@@ -115,6 +89,7 @@ function printCal() {
   document.getElementById("inputCal").value = "";
 }
 
+/*
 //현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
 function setMonthDay1() {
   let month = document.getElementById("Month");
@@ -131,8 +106,10 @@ function setMonthDay1() {
     month.append(newMonth);
   }
 }
+*/
 
 //월 선택하면 날짜를 선택할 수 있게 한다.
+/*
 let month = document.getElementById("Month");
 month.onchange = function () {
   console.log("month");
@@ -162,6 +139,7 @@ month.onchange = function () {
     }
   }
 };
+*/
 
 let type = document.getElementById("moneyType");
 type.onchange = function () {
@@ -180,7 +158,6 @@ type.onchange = function () {
 };
 
 window.addEventListener("load", () => {
-  setMonthDay1();
   setMonthDay2();
   printDateTime();
   loadRecords();

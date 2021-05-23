@@ -149,247 +149,200 @@
             </div>
 
 
-            <div id = "compare">
-                <div id = "wrapper">
-                    <h4><b>🧐 다른 날과 비교해볼까요? </b><span id = "compareDetail" class="detail" > </span></h4>
-
-                    <div class="button btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-                        <input id="btnradio3" onclick="printDateTime()"  type="radio" class="btn-check" name="btnradio2"  autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio3">송금보낼때</label>
-                      
-                        <input id="btnradio4" onclick="printDateTime()" type="radio" class="btn-check" name="btnradio2"  autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio4">송금받을때</label>
-                      
-                      </div>
-
-                    <div class = "select">
-                    <select id="Month" class="form-select" >
-                        <option selected>월</option>
+            <div id="compare">
+                <div id="wrapper">
+                  <h3>
+                    <b>🧐 다른 날과 비교해볼까요? </b
+                    ><span id="compareDetail" class="detail"> </span>
+                  </h3>
+        
+                  <div
+                    class="button btn-group btn-group-sm"
+                    role="group"
+                    aria-label="Basic radio toggle button group"
+                  >
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="btnradio2"
+                      id="btnradio3"
+                      autocomplete="off"
+                      checked
+                    />
+                    <label class="btn btn-outline-primary" for="btnradio3"
+                      >송금보낼때</label
+                    >
+        
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="btnradio2"
+                      id="btnradio4"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-outline-primary" for="btnradio4"
+                      >송금받을때</label
+                    >
+                  </div>
+        
+                  <div class="select">
+                    <select id="Month" class="form-select">
+                      <option selected>월</option>
                     </select>
-                  </td>
-
-                  <td>
-                    <span>&nbsp;&nbsp;를 기준으로</span>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="context">
-              <table>
-                <tr>
-                  <td>
+        
+                    월
+        
+                    <select id="Day" class="form-select">
+                      <option selected>일</option>
+                    </select>
+                    일과 비교하면
+                  </div>
+        
+                  <div class="result">원 손해/이득입니다!</div>
+                </div>
+              </div>
+        
+              <div id="record">
+                <div id="wrapper">
+                  <h3><b>🧾 나의 외화 보유량 </b></h3>
+                  <div class="d-flex" style="margin-top: 20px">
+                    <select id="record-moneyType" class="form-select">
+                      <option selected>종류</option>
+                      <option value="1">USD</option>
+                      <option value="2">JPY</option>
+                      <option value="3">CNY</option>
+                    </select>
+        
                     <div class="input-group flex-nowrap">
-                      <span id="addon-wrapping" class="input-group-text"></span>
+                      <span id="record-optionType" class="input-group-text ms-2"></span>
                       <input
-                        id="inputCal"
+                        id="record-input"
                         type="text"
-                        onchange="printCal()"
                         class="form-control"
-                        placeholder="Enter Money"
-                        aria-label="Username"
-                        aria-describedby="addon-wrapping"
+                        placeholder="Enter Money ( + / - )"
                       />
                     </div>
-                  </td>
-                  <td>&nbsp;&nbsp;라고 했을 때,</td>
-                </tr>
-              </table>
+        
+                    <select id="record-Month" class="form-select ms-2">
+                      <option selected>월</option>
+                    </select>
+        
+                    <select id="record-Day" class="form-select ms-1">
+                      <option selected>일</option>
+                    </select>
+        
+                    <button
+                      type="button"
+                      class="btn btn-primary ms-2"
+                      id="record-saveButton"
+                    >
+                      save
+                    </button>
+        
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger ms-1"
+                      id="record-clearButton"
+                    >
+                      clear
+                    </button>
+                  </div>
+        
+                  <div class="d-flex" style="margin-top: 20px">
+                    <div class="record-tabel">
+                      <table class="table">
+                        <h5 class="text-center">USD</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="record-usd"></tbody>
+        
+                        <tfoot>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col" id="usd-sum">0</th>
+                            <td></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+        
+                    <div class="record-tabel">
+                      <table class="table">
+                        <h5 class="text-center">JPY</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="record-jpy"></tbody>
+        
+                        <tfoot>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col" id="jpy-sum">0</th>
+                            <td></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+        
+                    <div class="record-tabel">
+                      <table class="table">
+                        <h5 class="text-center">CNY</h5>
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+        
+                        <tbody id="record-cny"></tbody>
+        
+                        <tfoot>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col" id="cny-sum">0</th>
+                            <td></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="container-flex" id="navbr-bottom">
+              <div
+                style="
+                  width: 900px;
+                  margin: auto;
+                  line-height: 10px;
+                  padding: 20px;
+                  color: gainsboro;
+                "
+              >
+                <p class="font-monospace mt-2">Project "Today-exchange"</p>
+                <p class="font-monospace">
+                  COPYRIGHT ⓒ 2021 Group18 ALL RIGHTS RESERVED
+                </p>
+                <p class="font-monospace">
+                  Goup18 - San Kim, Jiyun Park, Hyejin Yoo from OSSP2021 SKKU.
+                </p>
+              </div>
             </div>
 
-            <div id="resultCal" class="result"></div>
-            <span>원 입니다!</span>
-          </div>
-        </div>
+
+
+
       </div>
 
-      <div id="compare">
-        <div id="wrapper">
-          <h3>
-            <b>🧐 다른 날과 비교해볼까요? </b
-            ><span id="compareDetail" class="detail"> </span>
-          </h3>
-
-          <div
-            class="button btn-group btn-group-sm"
-            role="group"
-            aria-label="Basic radio toggle button group"
-          >
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio2"
-              id="btnradio3"
-              autocomplete="off"
-              checked
-            />
-            <label class="btn btn-outline-primary" for="btnradio3"
-              >송금보낼때</label
-            >
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio2"
-              id="btnradio4"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-primary" for="btnradio4"
-              >송금받을때</label
-            >
-          </div>
-
-          <div class="select">
-            <select id="Month" class="form-select">
-              <option selected>월</option>
-            </select>
-
-            월
-
-            <select id="Day" class="form-select">
-              <option selected>일</option>
-            </select>
-            일과 비교하면
-          </div>
-
-          <div class="result">원 손해/이득입니다!</div>
-        </div>
-      </div>
-
-      <div id="record">
-        <div id="wrapper">
-          <h3><b>🧾 나의 외화 보유량 </b></h3>
-          <div class="d-flex" style="margin-top: 20px">
-            <select id="record-moneyType" class="form-select">
-              <option selected>종류</option>
-              <option value="1">USD</option>
-              <option value="2">JPY</option>
-              <option value="3">CNY</option>
-            </select>
-
-            <div class="input-group flex-nowrap">
-              <span id="record-optionType" class="input-group-text ms-2"></span>
-              <input
-                id="record-input"
-                type="text"
-                class="form-control"
-                placeholder="Enter Money ( + / - )"
-              />
-            </div>
-
-            <select id="record-Month" class="form-select ms-2">
-              <option selected>월</option>
-            </select>
-
-            <select id="record-Day" class="form-select ms-1">
-              <option selected>일</option>
-            </select>
-
-            <button
-              type="button"
-              class="btn btn-primary ms-2"
-              id="record-saveButton"
-            >
-              save
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-outline-danger ms-1"
-              id="record-clearButton"
-            >
-              clear
-            </button>
-          </div>
-
-          <div class="d-flex" style="margin-top: 20px">
-            <div class="record-tabel">
-              <table class="table">
-                <h5 class="text-center">USD</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Amount</th>
-                  </tr>
-                </thead>
-                <tbody id="record-usd"></tbody>
-
-                <tfoot>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col" id="usd-sum">0</th>
-                    <td></td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-
-            <div class="record-tabel">
-              <table class="table">
-                <h5 class="text-center">JPY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Amount</th>
-                  </tr>
-                </thead>
-                <tbody id="record-jpy"></tbody>
-
-                <tfoot>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col" id="jpy-sum">0</th>
-                    <td></td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-
-            <div class="record-tabel">
-              <table class="table">
-                <h5 class="text-center">CNY</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Amount</th>
-                  </tr>
-                </thead>
-
-                <tbody id="record-cny"></tbody>
-
-                <tfoot>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col" id="cny-sum">0</th>
-                    <td></td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-flex" id="navbr-bottom">
-      <div
-        style="
-          width: 900px;
-          margin: auto;
-          line-height: 10px;
-          padding: 20px;
-          color: gainsboro;
-        "
-      >
-        <p class="font-monospace mt-2">Project "Today-exchange"</p>
-        <p class="font-monospace">
-          COPYRIGHT ⓒ 2021 Group18 ALL RIGHTS RESERVED
-        </p>
-        <p class="font-monospace">
-          Goup18 - San Kim, Jiyun Park, Hyejin Yoo from OSSP2021 SKKU.
-        </p>
-      </div>
-    </div>
+      
 
     <script src="script.js"></script>
   </body>

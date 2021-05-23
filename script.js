@@ -106,7 +106,7 @@ function printCal(){
 }
 
 //현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
-function setMonthDay() {
+function setMonthDay1() {
   let month = document.getElementById("Month");
   let now = new Date();
 
@@ -125,6 +125,7 @@ function setMonthDay() {
 //월 선택하면 날짜를 선택할 수 있게 한다.
 let month = document.getElementById("Month");
 month.onchange = function () {
+    console.log("month");
   let day = document.getElementById("Day");
   let option = month.options[month.selectedIndex].innerText;
   let dayArr = new Array();
@@ -172,14 +173,15 @@ type.onchange = function(){
 }
 
 window.addEventListener("load", () => {
-  setMonthDay();
+  setMonthDay1();
+  setMonthDay2();
   printDateTime();
   loadRecords();
 });
 
 //////////////////////////////////
 
-function setMonthDay() {
+function setMonthDay2() {
   let month = document.getElementById("record-Month");
   let now = new Date();
 
@@ -197,6 +199,7 @@ function setMonthDay() {
 
 let recordMonth = document.getElementById("record-Month");
 recordMonth.onchange = function () {
+    console.log("record-month");
   let day = document.getElementById("record-Day");
   let option = recordMonth.options[recordMonth.selectedIndex].innerText;
   let dayArr = new Array();
@@ -307,10 +310,6 @@ function saveToTable(record) {
   }
 }
 
-window.addEventListener("load", () => {
-    setMonthDay();
-    printDateTime();
-}); 
 let clearButton = document.getElementById("record-clearButton");
 clearButton.addEventListener("click", () => {
   localStorage.clear();

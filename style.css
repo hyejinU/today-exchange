@@ -4,7 +4,7 @@ body {
 
 .container {
   background-color: rgba(255, 255, 255, 0.575);
-  width: 800px;
+  width: 900px;
   margin: auto;
   padding: 10px;
   margin-bottom: 40px;
@@ -25,7 +25,7 @@ body {
 
 .table {
   text-align: center;
-  width: 180px;
+  width: 230px;
   margin-left: 20px;
   margin-right: 20px;
   padding: 20px;

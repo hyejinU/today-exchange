@@ -155,7 +155,8 @@
                     <b>🧐 다른 날과 비교해볼까요? </b
                     ><span id="compareDetail" class="detail"> </span>
                   </h3>
-        
+                
+                  <!--
                   <div class="button btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
                     <input id="btnradio3" onclick="printDateTime()" type="radio" class="btn-check" name="btnradio2"  autocomplete="off" checked/>
                     <label class="btn btn-outline-primary" for="btnradio3">송금보낼때</label>
@@ -163,7 +164,8 @@
                     <input id="btnradio4" onclick="printDateTime()" type="radio" class="btn-check" name="btnradio2" autocomplete="off"/>
                     <label class="btn btn-outline-primary" for="btnradio4">송금받을때</label>
                   </div>
-        
+                  -->
+
                   <div class ="context">
                     <table>
                       <tr>
@@ -182,13 +184,14 @@
                           </select>
                         </td>
                         <td>
-                          일 전과 비교했을 때,
+                          일 전과 비교했을 때,<div id="compareDateDetail" class = "detail" > </div>
                         </td>
                       </tr>
                     </table>
                   </div>
         
-                  <div class="result">원 손해/이득입니다!</div>
+                  <div id="compareResultInt" class="result"></div>
+                  <div id="compareResultStr" class="result"></div>
                 </div>
               </div>
         

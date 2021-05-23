@@ -27,6 +27,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 //실시간 날짜, 시간, 분을 불러오는 function
+let buy = 0;
 function printDateTime() {
   let today = document.getElementById("todayDetail");
   let compare = document.getElementById("compareDetail");
@@ -36,56 +37,63 @@ function printDateTime() {
 
     if(document.getElementById("btnradio1").checked === true){
         todayStr = "송금보낼때, ";
+        buy = 1;
     }
     else{
         todayStr = "송금받을때, ";
+        buy = 0; 
     }
 
+/*
   if (document.getElementById("btnradio3").checked === true) {
     compareStr = "송금보낼때, ";
   } else if (document.getElementById("btnradio4").checked === true) {
     compareStr = "송금받을때, ";
   }
+*/
 
   todayStr += usd[0].DATE + ", 하나은행";
-  compareStr += usd[0].DATE + ", 하나은행";
+  //compareStr += usd[0].DATE + ", 하나은행";
 
   today.innerText = todayStr;
-  compare.innerText = compareStr;
+  compare.innerText = todayStr;
 }
 
 //calculate 한 result를 보여준다.
+let calResult;
+let compareOption;
+let compareInput;
 function printCal() {
-  let input = document.getElementById("inputCal").value;
-  let option = type.options[type.selectedIndex].innerText;
-  let result = "외화 종류를 선택해주세요.";
+  compareInput = document.getElementById("inputCal").value;
+  compareOption = type.options[type.selectedIndex].innerText;
+  calResult = "외화 종류를 선택해주세요.";
 
-  if (option === "USD") {
+  if (compareOption === "USD") {
     if (document.getElementById("btnradio1").checked === true) {
-      result = input * usd[0].BUY;
+      calResult = compareInput * usd[0].BUY;
     } else {
-      result = input * usd[0].SELL;
+      calResult = compareInput * usd[0].SELL;
     }
 
-    result = result.toFixed(2);
-  } else if (option === "JPY") {
+    calResult = calResult.toFixed(2);
+  } else if (compareOption === "JPY") {
     if (document.getElementById("btnradio1").checked === true) {
-      result = input * jpy[0].BUY;
+      calResult = compareInput * jpy[0].BUY;
     } else {
-      result = input * jpy[0].SELL;
+      calResult = compareInput * jpy[0].SELL;
     }
 
-    result = result.toFixed(2);
-  } else if (option === "CNY") {
+    calResult = calResult.toFixed(2);
+  } else if (compareOption === "CNY") {
     if (document.getElementById("btnradio1").checked === true) {
-      result = input * cny[0].BUY;
+      calResult = compareInput * cny[0].BUY;
     } else {
-      result = input * cny[0].SELL;
+      calResult = compareInput * cny[0].SELL;
     }
-    result = result.toFixed(2);
+    calResult = calResult.toFixed(2);
   }
 
-  document.getElementById("resultCal").innerText = result;
+  document.getElementById("resultCal").innerText = calResult;
   document.getElementById("inputCal").value = "";
 }
 
@@ -156,6 +164,82 @@ type.onchange = function () {
     moneytype.innerText = "¥(위안)";
   }
 };
+
+let compareDate = document.getElementById("compare-date");
+compareDate.onchange = function () {
+  let dateOption = compareDate.options[compareDate.selectedIndex].innerText;
+  let moneytypeOption = type.options[type.selectedIndex].innerText;
+  let compareDateDetail = document.getElementById("compareDateDetail");
+  let detailStr = " ";
+  let resultStr = " ";
+  let resultInt = "";
+  let error = 0;
+
+  let compareResult;
+
+  if(dateOption === "선택"){
+      resultInt = "날짜를 선택해주세요.";
+      error = 1;
+    }
+  else if(moneytypeOption === "종류" || calResult === "외화 종류를 선택해주세요."){
+      resultInt = "먼저 외화종류를 선택해주세요.";
+      error = 1;
+  }
+  else if(calResult === undefined ){
+      resultInt = "먼저 금액을 입력해주세요.";
+      error = 1;
+  }
+
+  if(error !== 1){
+
+    if(compareOption === "USD"){
+        if(buy){
+            compareResult = usd[dateOption].BUY * compareInput;
+        }
+        else{
+            compareResult = usd[dateOption].SELL * compareInput;
+        }
+    }
+    else if(compareOption === "JPY"){
+        if(buy){
+            compareResult = jpy[dateOption].BUY * compareInput;
+        }
+        else{
+            compareResult = jpy[dateOption].SELL * compareInput;
+        }
+    }
+    else if(compareOption === "CNY"){
+        if(buy){
+            compareResult = cny[dateOption].BUY * compareInput;
+        }
+        else{
+            compareResult = cny[dateOption].SELL * compareInput;
+        }
+    }
+
+    resultInt = calResult - compareResult;
+
+    if(0 <= resultInt){
+        resultStr = "원 손해입니다!";
+    }
+    else{
+        resultInt *= -1;
+        resultStr = "원 이득입니다";
+    }
+    resultInt = resultInt.toFixed(2);
+
+    detailStr = usd[dateOption].DATE + "기준(공휴일 및 주말 제외)";
+    compareDateDetail.innerText = detailStr;
+
+
+  }
+
+  document.getElementById("compareResultInt").innerText = resultInt;
+  document.getElementById("compareResultStr").innerText = resultStr;
+
+};
+
+
 
 window.addEventListener("load", () => {
   setMonthDay2();

@@ -7,7 +7,7 @@ function loadFile(filePath) {
       result = xmlhttp.responseText;
     }
     return result;
-  }
+}
 
   let usdStr = loadFile("usd.txt").split('@');
   let eurStr = loadFile("eur.txt").split('@');
@@ -18,6 +18,7 @@ function loadFile(filePath) {
   let eur = new Array();
   let jpy = new Array();
   let cny = new Array();
+
   for(let i=0; i<10; i++){
     usd[i] = JSON.parse(usdStr[i]);
     eur[i] = JSON.parse(eurStr[i]);
@@ -25,6 +26,7 @@ function loadFile(filePath) {
     cny[i] = JSON.parse(cnyStr[i]);
   }
 
+console.log(usd);
 
 
 //실시간 날짜, 시간, 분을 불러오는 function
@@ -35,10 +37,25 @@ function printDateTime() {
     let now = new Date();
 
     let dateTime = now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일 " + now.getHours() + "시 " + now.getMinutes() + "분 기준";
+    
+    let todayStr, compareStr;
 
-    let todayStr = "송금보낼때, " + dateTime + ", 하나은행";
-    let compareStr = "송금보낼때로 계산, " + dateTime + ", 하나은행";
+    if(document.getElementById("btnradio1").checked === true){
+        todayStr = "송금보낼때, ";
+    }
+    else{
+        todayStr = "송금받을때, ";
+    }
 
+    if(document.getElementById("btnradio3").checked === true){
+        compareStr = "송금보낼때, ";
+    }
+    else if(document.getElementById("btnradio4").checked === true){
+        compareStr = "송금받을때, ";
+    }
+
+    todayStr += usd[0].DATE + ", 하나은행";
+    compareStr += usd[0].DATE + ", 하나은행";
 
     today.innerText = todayStr;
     compare.innerText = compareStr;
@@ -49,25 +66,43 @@ function printDateTime() {
 function printCal(){
     let input = document.getElementById("inputCal").value;
     let option = type.options[type.selectedIndex].innerText;
+    let result = "외화 종류를 선택해주세요.";   
+
     
-    if(option==="종류"){
-        let result = "외화 종류를 선택해주세요."; 
-    }
-    else if(option === "USD"){
-        getData("USD");
-        let result = scraped['BUY'];
+    if(option === "USD"){
+
+        if(document.getElementById("btnradio1").checked === true){
+            result = input * usd[0].BUY;
+        }
+        else{
+            result = input * usd[0].SELL;
+        }
+
+        result = result.toFixed(2);
     }
     else if(option === "JPY"){
-        getData("JPY");
-        let result = scraped['BUY'];
+
+        if(document.getElementById("btnradio1").checked === true){
+            result = input * jpy[0].BUY;
+        }
+        else{
+            result = input * jpy[0].SELL;
+        }
+
+        result = result.toFixed(2);
     }
     else if(option === "CNY"){
-        getData("CNY");
-        let result = scraped["CNY"];
+        if(document.getElementById("btnradio1").checked === true){
+            result = input * cny[0].BUY;
+        }
+        else{
+            result = input * cny[0].SELL;
+        }
+        result = result.toFixed(2);
     }
 
-
     document.getElementById("resultCal").innerText = result;
+    document.getElementById("inputCal").value = "";
 }
 
 //현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
@@ -87,6 +122,7 @@ function setMonthDay(){
     }
 }
 
+//월 선택하면 날짜를 선택할 수 있게 한다.
 let month = document.getElementById("Month");
 month.onchange = function(){
     let day = document.getElementById("Day");
@@ -118,10 +154,13 @@ month.onchange = function(){
 
 }
 
+
 let type = document.getElementById("moneyType");
 type.onchange = function(){
     let option = type.options[type.selectedIndex].innerText;
-    let moneytype = document.getElementById("addon-wrapping");
+    let moneytype = document.getElementById("addon-wrapping");  
+    let result = "";
+    document.getElementById("resultCal").innerText = result;
 
     if(option ==="USD"){
         moneytype.innerText = "$";

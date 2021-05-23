@@ -115,7 +115,7 @@
                             <tr>
                               <td style="width: 250px;">
                                 <div class="card" style="height: 130px">
-                                  <select class="card-header form-select" id="moneyType" style="width: auto;">
+                                  <select class="card-header form-select" id="moneyType" style="width: auto; font-weight: bold; margin: -1px;">
                                     <option selected>종류</option>
                                     <option value="1">USD</option>
                                     <option value="2">JPY</option>
@@ -137,7 +137,7 @@
                               </td>
                               <td style="width: 250px;">
                                 <div class="card" style="height: 130px">
-                                  <div class="card-header">KRW</div>
+                                  <div class="card-header"><b>KRW</b></div>
                                   <div class="card-body">
                                     <p class="card-text">
                                       <div class="d-flex">
@@ -212,7 +212,7 @@
                                   일 전과 비교했을 때,
                                 </td>
                                 <td>
-                                    <div class=" border border-1" id="output-container">
+                                    <div class="border border-1 ms-2" id="output-container">
                                         
                                     <div id="compareResultInt" class="result" style="font-size:20px; font-weight: bold;">
                                      0.00
@@ -221,23 +221,25 @@
                                     </div>
                                 </td>
                                 <td>
+                                  원
+                                </td>
+                                <td>
                                     
-                                    <div id="compareResultStr" class="result">
-                                        원 --입니다!
+                                    <div id="compareResultStr" class="result ms-1" style="font-size:20px; font-weight: bold;">
+                                        --
                                     </div>
         
                                 </td>
+                                <td>
+                                  입니다.
+                                </td>
+                                
                               </tr>
 
-                      
-                      <tfoot>
-                        
-                            <div id="compareDateDetail" class = "detail"> </div>
-  
-                        
-                      </tfoot>
+                     
                       
                     </table>
+                    <div id="compareDateDetail" class = "detail ms-1"> </div>
                     
                   </div>
         
@@ -306,7 +308,6 @@
                           <tr>
                             <th scope="col"></th>
                             <th scope="col" id="usd-sum">0</th>
-                            <td></td>
                           </tr>
                         </tfoot>
                       </table>
@@ -327,7 +328,6 @@
                           <tr>
                             <th scope="col"></th>
                             <th scope="col" id="jpy-sum">0</th>
-                            <td></td>
                           </tr>
                         </tfoot>
                       </table>
@@ -349,7 +349,6 @@
                           <tr>
                             <th scope="col"></th>
                             <th scope="col" id="cny-sum">0</th>
-                            <td></td>
                           </tr>
                         </tfoot>
                       </table>

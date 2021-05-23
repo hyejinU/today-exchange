@@ -35,16 +35,15 @@ function printDateTime() {
   let now = new Date();
   let compareStr, todayStr;
 
-    if(document.getElementById("btnradio1").checked === true){
-        todayStr = "송금보낼때, ";
-        buy = 1;
-    }
-    else{
-        todayStr = "송금받을때, ";
-        buy = 0; 
-    }
+  if (document.getElementById("btnradio1").checked === true) {
+    todayStr = "송금보낼때, ";
+    buy = 1;
+  } else {
+    todayStr = "송금받을때, ";
+    buy = 0;
+  }
 
-/*
+  /*
   if (document.getElementById("btnradio3").checked === true) {
     compareStr = "송금보낼때, ";
   } else if (document.getElementById("btnradio4").checked === true) {
@@ -94,60 +93,7 @@ function printCal() {
   }
 
   document.getElementById("resultCal").innerText = calResult;
-  
 }
-
-/*
-//현재 날짜를 기준으로 날짜를 선택할 수 있게 한다. 20210101~현재날짜까지 가능하도록 설정함.
-function setMonthDay1() {
-  let month = document.getElementById("Month");
-  let now = new Date();
-
-  let nowYear = now.getFullYear();
-  let nowMonth = now.getMonth() + 1;
-  let nowDate = now.getDate();
-
-  for (let i = 1; i <= nowMonth; i++) {
-    let newMonth = document.createElement("option");
-    newMonth.innerText = i;
-    newMonth.setAttribute("value", i);
-    month.append(newMonth);
-  }
-}
-*/
-
-//월 선택하면 날짜를 선택할 수 있게 한다.
-/*
-let month = document.getElementById("Month");
-month.onchange = function () {
-  console.log("month");
-  let day = document.getElementById("Day");
-  let option = month.options[month.selectedIndex].innerText;
-  let dayArr = new Array();
-  dayArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-  let now = new Date();
-  let nowMonth = now.getMonth() + 1;
-  let nowDate = now.getDate();
-
-  day.innerText = "";
-  if (option == nowMonth) {
-    for (let i = 1; i <= nowDate; i++) {
-      let newMonth = document.createElement("option");
-      newMonth.innerText = i;
-      newMonth.setAttribute("value", i);
-      day.append(newMonth);
-    }
-  } else {
-    for (let i = 1; i <= dayArr[option - 1]; i++) {
-      let newMonth = document.createElement("option");
-      newMonth.innerText = i;
-      newMonth.setAttribute("value", i);
-      day.append(newMonth);
-    }
-  }
-};
-*/
 
 let type = document.getElementById("moneyType");
 type.onchange = function () {
@@ -177,69 +123,65 @@ compareDate.onchange = function () {
 
   let compareResult;
 
-  if(dateOption === "선택"){
-      resultInt = "날짜를 선택해주세요.";
-      error = 1;
-    }
-  else if(moneytypeOption === "종류" || calResult === "외화 종류를 선택해주세요."){
-      resultInt = "먼저 외화종류를 선택해주세요.";
-      error = 1;
-  }
-  else if(calResult === undefined ){
-      resultInt = "먼저 금액을 입력해주세요.";
-      error = 1;
+  if (dateOption === "선택") {
+    resultInt = "날짜를 선택해주세요.";
+    error = 1;
+  } else if (
+    moneytypeOption === "종류" ||
+    calResult === "외화 종류를 선택해주세요."
+  ) {
+    resultInt = "먼저 외화종류를 선택해주세요.";
+    error = 1;
+  } else if (calResult === undefined) {
+    resultInt = "먼저 금액을 입력해주세요.";
+    error = 1;
   }
 
-  if(error !== 1){
-
-    if(compareOption === "USD"){
-        if(buy){
-            compareResult = usd[dateOption].BUY * compareInput;
-        }
-        else{
-            compareResult = usd[dateOption].SELL * compareInput;
-        }
-    }
-    else if(compareOption === "JPY"){
-        if(buy){
-            compareResult = jpy[dateOption].BUY * compareInput;
-        }
-        else{
-            compareResult = jpy[dateOption].SELL * compareInput;
-        }
-    }
-    else if(compareOption === "CNY"){
-        if(buy){
-            compareResult = cny[dateOption].BUY * compareInput;
-        }
-        else{
-            compareResult = cny[dateOption].SELL * compareInput;
-        }
+  if (error !== 1) {
+    if (compareOption === "USD") {
+      if (buy) {
+        compareResult = usd[dateOption].BUY * compareInput;
+      } else {
+        compareResult = usd[dateOption].SELL * compareInput;
+      }
+    } else if (compareOption === "JPY") {
+      if (buy) {
+        compareResult = jpy[dateOption].BUY * compareInput;
+      } else {
+        compareResult = jpy[dateOption].SELL * compareInput;
+      }
+    } else if (compareOption === "CNY") {
+      if (buy) {
+        compareResult = cny[dateOption].BUY * compareInput;
+      } else {
+        compareResult = cny[dateOption].SELL * compareInput;
+      }
     }
 
     resultInt = calResult - compareResult;
 
-    if(0 <= resultInt){
-        resultStr = "원 손해입니다!";
-    }
-    else{
-        resultInt *= -1;
-        resultStr = "원 이득입니다!";
+    let color1 = document.getElementById("compareResultInt");
+    let color2 = document.getElementById("compareResultStr");
+
+    if (0 <= resultInt) {
+      resultStr = " 손해";
+      color1.style.color = "red";
+      color2.style.color = "red";
+    } else {
+      resultInt *= -1;
+      resultStr = " 이득";
+      color1.style.color = "blue";
+      color2.style.color = "blue";
     }
     resultInt = resultInt.toFixed(2);
 
     detailStr = usd[dateOption].DATE + "기준(공휴일 및 주말 제외)";
     compareDateDetail.innerText = detailStr;
-
-
   }
 
   document.getElementById("compareResultInt").innerText = resultInt;
   document.getElementById("compareResultStr").innerText = resultStr;
-
 };
-
-
 
 window.addEventListener("load", () => {
   setMonthDay2();
@@ -352,29 +294,30 @@ saveButton.addEventListener("click", () => {
 });
 
 function saveToTable(record) {
-  let row = `<tr> <td> ${record.month}.${record.day} </td> <td>${record.input}</td> </tr>`;
-
   if (record.type === "USD") {
+    let row = `<tr> <td> ${record.month}.${record.day} </td> <td>$${record.input}</td> </tr>`;
     let type = document.getElementById("record-usd");
     type.innerHTML += row;
     let sum = document.getElementById("usd-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("usd-sum").innerText = sum;
+    document.getElementById("usd-sum").innerText = "$" + sum;
   } else if (record.type === "JPY") {
+    let row = `<tr> <td> ${record.month}.${record.day} </td> <td>¥${record.input}</td> </tr>`;
     let type = document.getElementById("record-jpy");
     type.innerHTML += row;
     let sum = document.getElementById("jpy-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("jpy-sum").innerText = sum;
+    document.getElementById("jpy-sum").innerText = "¥" + sum;
   } else if (record.type === "CNY") {
+    let row = `<tr> <td> ${record.month}.${record.day} </td> <td>¥${record.input}</td> </tr>`;
     let type = document.getElementById("record-cny");
     type.innerHTML += row;
     let sum = document.getElementById("cny-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("cny-sum").innerText = sum;
+    document.getElementById("cny-sum").innerText = "¥" + sum;
   }
 }
 

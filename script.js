@@ -34,12 +34,11 @@ function printDateTime() {
   let now = new Date();
   let compareStr, todayStr;
 
-    if(document.getElementById("btnradio1").checked === true){
-        todayStr = "송금보낼때, ";
-    }
-    else{
-        todayStr = "송금받을때, ";
-    }
+  if (document.getElementById("btnradio1").checked === true) {
+    todayStr = "송금보낼때, ";
+  } else {
+    todayStr = "송금받을때, ";
+  }
 
   if (document.getElementById("btnradio3").checked === true) {
     compareStr = "송금보낼때, ";
@@ -58,7 +57,7 @@ function printDateTime() {
 function printCal() {
   let input = document.getElementById("inputCal").value;
   let option = type.options[type.selectedIndex].innerText;
-  let result = "외화 종류를 선택해주세요.";
+  let result = "종류를 선택하세요.";
 
   if (option === "USD") {
     if (document.getElementById("btnradio1").checked === true) {
@@ -86,7 +85,7 @@ function printCal() {
   }
 
   document.getElementById("resultCal").innerText = result;
-  document.getElementById("inputCal").value = "";
+  //document.getElementById("inputCal").value = "";
 }
 
 /*

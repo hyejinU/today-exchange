@@ -109,39 +109,65 @@
 
                     <div class = "select">
                     <div class = "context">
-                    <table>
+                      <table style="margin: auto; width: 600px;">
                         <tr>
-                            <td>
-                            <select id="moneyType" class="form-select">
+                          <td style="width: 250px;">
+                            <div class="card" style="height: 130px">
+                              <select class="card-header form-select" id="moneyType" style="width: auto;">
                                 <option selected>종류</option>
                                 <option value="1">USD</option>
                                 <option value="2">JPY</option>
                                 <option value="3">CNY</option>
-                            </select></td>
+                              </select>
+                              <div class="card-body">
+                                <p class="card-text">
+                                <div class="input-group flex-nowrap">
+                                  <span id="addon-wrapping" class="input-group-text" ></span>
+                                  <input id="inputCal" type="text" onchange="printCal()" class="form-control" placeholder="Enter Money" aria-label="Username" aria-describedby="addon-wrapping">
+                              </div></p>
+                              </div>
+                            </div>
+                          </td>
+                          <td style="text-align: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                            </svg>
+                          </td>
+                          <td style="width: 250px;">
+                            <div class="card" style="height: 130px">
+                              <div class="card-header">KRW</div>
+                              <div class="card-body">
+                                <p class="card-text">
+                                  <div class="d-flex">
+                                    <div class=" border border-1" id="output-container">
+                                      <div id="resultCal" class="result">
+                                       
+                                        
+                                      </div>
 
-                            <td>
-                            <span>&nbsp;&nbsp;를 기준으로</span>
-                            </td>
+                                    </div>
+                                    
+                                    <div style="margin-top: 8px; margin-left: 3px;">원</div>
+                                    
+                                    
+
+                                  </div>
+                                 
+                                </p>
+                              </div>
+                            </div>
+
+                          </td>
                         </tr>
-                    </table>
-                    </div>
-
-                    <div class = "context">
-                    <table>
-                        <tr>
-                        <td><div class="input-group flex-nowrap">
-                            <span id="addon-wrapping" class="input-group-text" ></span>
-                            <input id="inputCal" type="text" onchange="printCal()" class="form-control" placeholder="Enter Money" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div></td>
-                        <td>
-                            &nbsp;&nbsp;라고 했을 때,</td>
-                        </tr>
-                    </table>
-                    </div>
-
-                    <div id="resultCal" class="result"> </div><span>원 입니다!</span>
+                      </table>
+                      
+                      </div>
                     
                     </div>
+
+                    
+
+                   
 
                     
                 </div>

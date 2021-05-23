@@ -31,6 +31,14 @@ body {
   padding: 20px;
 }
 
+#output-container {
+  padding: 3px;
+  padding-left: 7px;
+  padding-right: 5px;
+  border-radius: 5px;
+  width: 180px;
+}
+
 #wrapper {
   margin: 20px;
   padding: 20px;

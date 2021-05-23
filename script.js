@@ -35,6 +35,7 @@ function printDateTime() {
   let now = new Date();
   let compareStr, todayStr;
 
+<<<<<<< HEAD
     if(document.getElementById("btnradio1").checked === true){
         todayStr = "송금보낼때, ";
         buy = 1;
@@ -43,6 +44,13 @@ function printDateTime() {
         todayStr = "송금받을때, ";
         buy = 0; 
     }
+=======
+  if (document.getElementById("btnradio1").checked === true) {
+    todayStr = "송금보낼때, ";
+  } else {
+    todayStr = "송금받을때, ";
+  }
+>>>>>>> 1b15cb28c6a10ff4957a40cd336ea9b694d3d10e
 
 /*
   if (document.getElementById("btnradio3").checked === true) {
@@ -64,9 +72,15 @@ let calResult;
 let compareOption;
 let compareInput;
 function printCal() {
+<<<<<<< HEAD
   compareInput = document.getElementById("inputCal").value;
   compareOption = type.options[type.selectedIndex].innerText;
   calResult = "외화 종류를 선택해주세요.";
+=======
+  let input = document.getElementById("inputCal").value;
+  let option = type.options[type.selectedIndex].innerText;
+  let result = "종류를 선택하세요.";
+>>>>>>> 1b15cb28c6a10ff4957a40cd336ea9b694d3d10e
 
   if (compareOption === "USD") {
     if (document.getElementById("btnradio1").checked === true) {
@@ -93,8 +107,13 @@ function printCal() {
     calResult = calResult.toFixed(2);
   }
 
+<<<<<<< HEAD
   document.getElementById("resultCal").innerText = calResult;
   document.getElementById("inputCal").value = "";
+=======
+  document.getElementById("resultCal").innerText = result;
+  //document.getElementById("inputCal").value = "";
+>>>>>>> 1b15cb28c6a10ff4957a40cd336ea9b694d3d10e
 }
 
 /*

@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="container-flex border border-2 border-end-0 border-start-0">
+    <div class="container-flex border border-2 border-end-0 border-start-0" style="margin-top: 10px; margin-bottom: 30px;">
       <div class="d-flex" style="width: 701px; margin: auto">
         <div>
           네이버금융
@@ -83,15 +83,34 @@
       </div>
     </div>
 
+    
+
     <div class="container">
+
+      
+
         <div id="graph">
           <div id="wrapper">
             <h3><b>💵 환율 그래프</b></h3>
-            <div class="d-flex">
-              <div id="USDChart" style="height: 250px; width:35%; margin:10px"></div>
-              <div id="CNYChart" style="height: 250px; width:35%;  margin:10px"></div>
-              <div id="JPYChart" style="height: 250px; width:35%; margin:10px"></div>
+
+            <div id="slide" style="margin-top: 30px;">
+              <input type="radio" name="pos" id="pos1">
+              <input type="radio" name="pos" id="pos2" checked>
+              <input type="radio" name="pos" id="pos3">
+              <ul>
+                <li>
+                  <div id="CNYChart" style="height: 280px; width:90%;  margin:auto"></div></li>
+                <li><div id="USDChart" style="height: 280px; width:90%; margin:auto"></div></li>
+                <li><div id="JPYChart" style="height: 280px; width:90%; margin:auto"></div></li>
+              </ul>
+              <p class="pos">
+                <label for="pos1"></label>
+                <label for="pos2"></label>
+                <label for="pos3"></label>
+              </p>
+              
             </div>
+            
           </div>
                   
         </div>

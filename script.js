@@ -301,7 +301,7 @@ function saveToTable(record) {
     let sum = document.getElementById("usd-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("usd-sum").innerText = "$" + sum;
+    document.getElementById("usd-sum").innerText = sum;
   } else if (record.type === "JPY") {
     let row = `<tr> <td> ${record.month}.${record.day} </td> <td>¥${record.input}</td> </tr>`;
     let type = document.getElementById("record-jpy");
@@ -309,7 +309,7 @@ function saveToTable(record) {
     let sum = document.getElementById("jpy-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("jpy-sum").innerText = "¥" + sum;
+    document.getElementById("jpy-sum").innerText = sum;
   } else if (record.type === "CNY") {
     let row = `<tr> <td> ${record.month}.${record.day} </td> <td>¥${record.input}</td> </tr>`;
     let type = document.getElementById("record-cny");
@@ -317,7 +317,7 @@ function saveToTable(record) {
     let sum = document.getElementById("cny-sum");
     sum = parseFloat(sum.innerText);
     sum += record.input;
-    document.getElementById("cny-sum").innerText = "¥" + sum;
+    document.getElementById("cny-sum").innerText = sum;
   }
 }
 

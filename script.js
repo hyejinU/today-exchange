@@ -43,16 +43,7 @@ function printDateTime() {
     buy = 0;
   }
 
-  /*
-  if (document.getElementById("btnradio3").checked === true) {
-    compareStr = "송금보낼때, ";
-  } else if (document.getElementById("btnradio4").checked === true) {
-    compareStr = "송금받을때, ";
-  }
-*/
-
   todayStr += usd[0].DATE + ", 하나은행";
-  //compareStr += usd[0].DATE + ", 하나은행";
 
   today.innerText = todayStr;
   compare.innerText = todayStr;
@@ -111,6 +102,7 @@ type.onchange = function () {
   }
 };
 
+//compare한 result 를 보여준다.
 let compareDate = document.getElementById("compare-date");
 compareDate.onchange = function () {
   let dateOption = compareDate.options[compareDate.selectedIndex].innerText;

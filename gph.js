@@ -11,18 +11,15 @@ window.onload = function () {
   }
 
   let usdStr = loadFile("txt/usd.txt").split("@");
-  let eurStr = loadFile("txt/eur.txt").split("@");
   let jpyStr = loadFile("txt/jpy.txt").split("@");
   let cnyStr = loadFile("txt/cny.txt").split("@");
 
   let usd = new Array();
-  let eur = new Array();
   let jpy = new Array();
   let cny = new Array();
 
   for (let i = 0; i < 10; i++) {
     usd[i] = JSON.parse(usdStr[i]);
-    eur[i] = JSON.parse(eurStr[i]);
     jpy[i] = JSON.parse(jpyStr[i]);
     cny[i] = JSON.parse(cnyStr[i]);
   }

@@ -69,7 +69,7 @@ $ node app.js
   환율계산기, 외화 보유량 기록 기능을 구현하는 자바스크립트 파일이다.
 
 - `app.js`   
-  express 를 통해 서버를 구축하고 서버에 `index.html`을 불러온다. 또한, 환율을 웹크롤링해와 이를 txt 파일 (`cny.txt, jpy.txt, eur.txt, usd.txt`)에 저장한다.
+  express 를 통해 서버를 구축하고 서버에 `index.html`을 불러온다. 또한, 환율을 웹크롤링해와 이를 txt 파일 (`cny.txt, jpy.txt, usd.txt`)에 저장한다.
 
 - `gph.js`     
   환율그래프에 들어가는 그래프를 기록하는 자바스크립트 파일이다. 

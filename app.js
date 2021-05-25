@@ -44,28 +44,7 @@ function getData(choice) {
             });
         });
         break;
-    case "EUR":
-            request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_EURKRW", function (err, res, body) {
-        const $ = cheerio.load(body);
-        const bodyList = $(".tbl_exchange tbody tr").map(function (i, element) {
-            scraped['DATE'] = String($(element).find('td:nth-of-type(1)').text()).replace(/,/g, "");
-            scraped['ExchangeRate'] =  parseFloat(String($(element).find('td:nth-of-type(2)').text()).replace(/,/g, ""));
-            scraped['BUY'] =  parseFloat(String($(element).find('td:nth-of-type(6)').text()).replace(/,/g, ""));
-            scraped['SELL'] =  parseFloat(String($(element).find('td:nth-of-type(7)').text()).replace(/,/g, ""));
-            var data = JSON.stringify(scraped);
-            if(i===0){
-                data += "@";
-                fs.writeFileSync('txt/eur.txt', data, 'utf8'); 
-            }
-            else{
-                if(i!==9) data += "@";
-                fs.appendFileSync('txt/eur.txt', data); 
-            }   
-        });
-        
-
-    });
-    break;
+    
     case "JPY":
             request("https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_JPYKRW", function (err, res, body) {
         const $ = cheerio.load(body);
@@ -117,7 +96,6 @@ function getData(choice) {
 }
 
 getData("USD");
-getData("EUR");
 getData("JPY");
 getData("CNY");
 

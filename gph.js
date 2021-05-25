@@ -10,10 +10,10 @@ window.onload = function () {
     return result;
   }
 
-  let usdStr = loadFile("usd.txt").split("@");
-  let eurStr = loadFile("eur.txt").split("@");
-  let jpyStr = loadFile("jpy.txt").split("@");
-  let cnyStr = loadFile("cny.txt").split("@");
+  let usdStr = loadFile("txt/usd.txt").split("@");
+  let eurStr = loadFile("txt/eur.txt").split("@");
+  let jpyStr = loadFile("txt/jpy.txt").split("@");
+  let cnyStr = loadFile("txt/cny.txt").split("@");
 
   let usd = new Array();
   let eur = new Array();

@@ -35,11 +35,11 @@ function getData(choice) {
             var data = JSON.stringify(scraped);
             if(i===0){
                 data += "@";
-                fs.writeFileSync('usd.txt', data, 'utf8'); // 동기적 파일쓰기, 왜? 비동기적하면 하면서 다른것도 씀 -> 순서가 뒤틀림
+                fs.writeFileSync('txt/usd.txt', data, 'utf8'); // 동기적 파일쓰기, 왜? 비동기적하면 하면서 다른것도 씀 -> 순서가 뒤틀림
             }
             else{
                 if(i!==9) data += "@";
-                fs.appendFileSync('usd.txt', data); // 비동기적 파일 쓰기
+                fs.appendFileSync('txt/usd.txt', data); // 비동기적 파일 쓰기
             }   
             });
         });
@@ -55,11 +55,11 @@ function getData(choice) {
             var data = JSON.stringify(scraped);
             if(i===0){
                 data += "@";
-                fs.writeFileSync('eur.txt', data, 'utf8'); 
+                fs.writeFileSync('txt/eur.txt', data, 'utf8'); 
             }
             else{
                 if(i!==9) data += "@";
-                fs.appendFileSync('eur.txt', data); 
+                fs.appendFileSync('txt/eur.txt', data); 
             }   
         });
         
@@ -78,11 +78,11 @@ function getData(choice) {
             var data = JSON.stringify(scraped);
             if(i===0){
                 data += "@";
-                fs.writeFileSync('jpy.txt', data, 'utf8'); 
+                fs.writeFileSync('txt/jpy.txt', data, 'utf8'); 
             }
             else{
                 if(i!==9) data += "@";
-                fs.appendFileSync('jpy.txt', data); 
+                fs.appendFileSync('txt/jpy.txt', data); 
             }   
         });
         
@@ -101,11 +101,11 @@ function getData(choice) {
             var data = JSON.stringify(scraped);
             if(i===0){
                 data += "@";
-                fs.writeFileSync('cny.txt', data, 'utf8'); 
+                fs.writeFileSync('txt/cny.txt', data, 'utf8'); 
             }
             else{
                 if(i!==9) data += "@";
-                fs.appendFileSync('cny.txt', data); 
+                fs.appendFileSync('txt/cny.txt', data); 
             }   
         });
         

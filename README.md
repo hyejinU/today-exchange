@@ -104,8 +104,7 @@ $ node app.js
 [cheerio](https://www.npmjs.com/package/cheerio), [cheerio-httpcli](https://www.npmjs.com/package/cheerio-httpcli), [cors](https://www.npmjs.com/package/cors), [request](https://www.npmjs.com/package/request), [express](https://www.npmjs.com/package/express)
 
 - 환율 정보   
-[USD](https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_USDKRW)   
-[EUR](https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_EURKRW)   
+[USD](https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_USDKRW)    
 [JPY](https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_JPYKRW)   
 [CNY](https://finance.naver.com/marketindex/exchangeDailyQuote.nhn?marketindexCd=FX_CNYKRW)
 

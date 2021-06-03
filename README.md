@@ -20,7 +20,7 @@
 ```
 $ node app.js
 ```
-를 cmd 혹은 Terminal에서 실행시킨 뒤, 브라우저(Chrome 권장)에서 http://localhost:3000/ 에 접속한다.   
+먼저 깃허브 속 코드를 다운받거나 git clone을 한 뒤 위 명령어를 cmd 혹은 Terminal에서 실행시킨다. 그 뒤, 브라우저(Chrome 권장)에서 http://localhost:3000/ 에 접속한다.   
 또한 [깃허브 홈페이지](https://hyejinu.github.io/today-exchange/) 에서도 Test homepage를 볼 수 있다. (단, 웹크롤링으로 환율을 업데이트하는 것이 안된다. 깃허브에 나와있는 txt파일로 정보를 끌어온다.)
 
 
